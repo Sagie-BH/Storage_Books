@@ -1,0 +1,16 @@
+[{
+        "title": "json 1",
+        "author": 1,
+        "isbn": 1
+    },
+    {
+        "title": "json 2",
+        "author": 2,
+        "isbn": 2
+    },
+    {
+        "title": "json 3",
+        "author": 3,
+        "isbn": 3
+    }
+]

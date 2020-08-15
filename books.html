@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>BOOK DEMO</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="bookStyle.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron" style="background:WhiteSmoke">
+            <h1>Books</h1>
+            <form id="book-form">
+                <fieldset>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Book Name:</label>
+                        <input type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Enter Book Title...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Auther:</label>
+                        <input type="text" class="form-control" id="auther" aria-describedby="emailHelp" placeholder="Enter Book Title...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">ISBN:</label>
+                        <input type="text" class="form-control" id="isbn" aria-describedby="emailHelp" placeholder="Enter Book Title...">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Add Book</button>
+                </fieldset>
+            </form>
+        </div>
+        <table id="bookTable" class="table">
+            <thead>
+                <tr style="font-size:22px" class="table-dark">
+                    <th id="colTitle" scope="col">Title</th>
+                    <th id="colAuthor" scope="col">Author</th>
+                    <th id="colIsbn" scope="col">ISBN#</th>
+                    <th scope="col"> </th>
+                </tr>
+            </thead>
+            <tbody id="book-list">
+                <!-- <tr>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+    <script src="books.js"></script>
+</body>
+
+</html>
