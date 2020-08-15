@@ -42,6 +42,7 @@ class BookStorage {
         localStorage.setItem(BookStorage.BOOKSKEY, JSON.stringify(books));
     }
     static GetJsonBooks = () => {
+        let jsonBooks = [];
         fetch('books.json').then(jsonArr => jsonArr.json())
             .then(jsonArr => jsonArr.forEach(jsonObj => {
                 UI.addBookToList(jsonObj, 'jsonInput');
@@ -53,17 +54,18 @@ class BookStorage {
 // Read Data From Inputs For New Book Item
 class UI {
     static addBookToList(book, className) {
-        let listTableBody = document.querySelector("#book-list");
         // Create New Tr
         let row = document.createElement("tr");
         row.classList.add(className);
         row.innerHTML = `<td>${book.title}</td>` +
             `<td>${book.author} </td>` +
             `<td>${book.isbn} </td>` +
-            `<td> <span id="b-${book.isbn}" class="badge badge-pill badge-danger myDeleteClass"></button> Delete </span> </td>`;
-        listTableBody.appendChild(row);
+            `<td> <span id="b-${book.isbn}" class="badge badge-pill badge-danger myDeleteClass"></button> Delete </span>
+            <span class="badge badge-info myEditClass">Edit</span> </td>`;
+        document.querySelector("#book-list").appendChild(row);
     }
     static displayBooks() {
+        document.querySelector("#book-list").innerHTML = "";
         BookStorage.getBooks().forEach(book => this.addBookToList(book));
     }
     static clearFormInputs() {
@@ -97,11 +99,20 @@ addDeleteEvent = () => {
         })
     })
 }
+checkJsonData = () => {
+    setInterval(() => {
+        let JsonFileArr = BookStorage.GetJsonBooks();
+        let localStorageArr = BookStorage.getBooks();
+        if (JsonFileArr + localStorageArr == JsonFileArr) {
+            alert('yofi');
+        }
+    }, 10000);
+}
 window.addEventListener('DOMContentLoaded', () => {
     UI.displayBooks();
     BookStorage.GetJsonBooks();
+    // checkJsonData();
 });
-
 
 document.querySelector("#book-form").addEventListener("submit", e => {
     e.preventDefault();
